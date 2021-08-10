@@ -16,7 +16,8 @@
     "outDir": "lib",
     "allowJs": true,
     "lib": ["ESNext", "DOM"],
-    "types": ["jest"]
+    "types": ["jest"],
+    "jsx": "react"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "lib", "docs"],

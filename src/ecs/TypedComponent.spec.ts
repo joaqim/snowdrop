@@ -2,6 +2,7 @@ import {
   createEntityTypesafe,
   TypedComponent,
   TypedEntityConfig,
+  TypedComponentConfigVal,
 } from "./TypedComponent";
 
 class Velocity extends TypedComponent({ dx: 0, dy: 0 }) {}
@@ -10,6 +11,7 @@ class Flag extends TypedComponent() {}
 
 interface IEntity {
   id?: string;
+  tags?: string[];
   c: {
     [key: string]: any;
   };
@@ -17,12 +19,18 @@ interface IEntity {
 
 function createEntity<T extends { readonly [K in keyof object]: any }>(
   definition: TypedEntityConfig<T>
-): IEntity {
+): TypedEntityConfig<T> {
   return definition;
 }
 
 describe(">>> TypedComponent", () => {
-  let entity: IEntity;
+  //let entity: IEntity;
+  let entity: TypedEntityConfig<{
+    flag: Flag;
+    velocity: Velocity;
+    circle: Circle;
+  }>;
+
   it("", () => {
     entity = createEntity({
       id: "asd",

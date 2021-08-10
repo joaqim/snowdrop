@@ -3,7 +3,7 @@ class Component<TProperties extends {} = {}> {
 }
 
 type Constructor<T> = { new (...args: any[]): T };
-type TypedComponentConfigVal<T> = T extends Component<infer TProperties>
+export type TypedComponentConfigVal<T> = T extends Component<infer TProperties>
   ? { type: Constructor<T>; id?: string; entity?: string } & TProperties
   : never;
 export type TypedEntityConfig<
